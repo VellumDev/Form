@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html >
+    <head>
+     <link rel="stylesheet" type="text/css" href="style.css"> 
+     <style>
+   /* Body and overall background to complement the red */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* A light grey to make the red stand out */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+}
+
+/* Styling the form container */
+form {
+    background-color: #ffffff; /* White background for the form itself */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 300px;
+    text-align: center;
+}
+
+/* Welcome message */
+p {
+    color: #333; /* Darker text for readability */
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Labels for inputs */
+label {
+    display: block; /* Make labels take their own line */
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #CC0000; /* A rich, vibrant red for labels */
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #FF0000; /* Bright red border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Soft red glow on focus */
+}
+
+/* Message display area */
+#message {
+    color: #FF0000; /* Default error message color */
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 1.2em; /* Reserve space to prevent layout shift */
+}
+
+/* Login button (the 'a' tag) */
+a {
+    display: inline-block; /* Allows padding and margin */
+    background-color: #FF0000; /* Pure, vibrant red background */
+    color: white; /* White text for contrast */
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); /* Soft red shadow */
+}
+
+a:hover {
+    background-color: #CC0000; /* Slightly darker red on hover */
+    transform: translateY(-2px); /* Lifts the button slightly */
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+a:active {
+    background-color: #990000; /* Even darker red when clicked */
+    transform: translateY(0); /* Pushes the button down */
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3); /* Reduced shadow when pressed */
+}
+     </style>
+    </head>
+    <body>
+    <p>Welcome. Please log in</p>
+   
+    <form>
+      <label for="usernameInput">Username:</label><input type="text" id="usernameInput"/><br/>
+<label for="passwordInput">Password:</label><input type="password" id="passwordInput"/><br/>  
+        <p id="message"></p>
+      <br/><br/>  
+       <a href="#" onclick="verifyUser()">Log in</a>
+        </form>
+        <script>
+    function verifyUser(){
+var username = document.getElementById("usernameInput").value;
+var password = document.getElementById("passwordInput").value;
+checkUserCreds(username, password);
+}  
+    function checkUserCreds(username, password) {
+var systemUsername = "Bond";
+var systemPassword = "007";
+ if(username == systemUsername && password == systemPassword){
+document.getElementById("message").innerHTML = "Correct. Loggin you in...";
+}
+else {
+document.getElementById("message").innerHTML = "Username or password are incorrect";
+     }
+}
+         </script>
+    </body>
+</html>
